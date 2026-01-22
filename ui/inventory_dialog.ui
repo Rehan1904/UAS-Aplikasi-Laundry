@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InventoryDialog</class>
+ <widget class="QDialog" name="InventoryDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Tambah/Edit Inventory</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #f0f8ff, stop:1 #e0f7fa);
+    border-radius: 10px;
+}
+
+QPushButton {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font: bold 14pt Arial;
+}
+
+QPushButton:hover {
+    background-color: #43a047;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+QLabel {
+    font: bold 14pt Arial;
+    color: #01579b;
+}
+
+QLineEdit {
+    padding: 10px;
+    border: 1px solid #90a4ae;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font: 12pt Arial;
+}
+
+QGroupBox {
+    border: 1px solid #90a4ae;
+    border-radius: 8px;
+    margin-top: 15px;
+    font: bold 16pt Arial;
+    color: #01579b;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 15px;
+    padding: 0 5px 0 5px;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>15</number>
+   </property>
+   <property name="leftMargin">
+    <number>30</number>
+   </property>
+   <property name="topMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>30</number>
+   </property>
+   <property name="bottomMargin">
+    <number>30</number>
+   </property>
+   <item>
+    <widget class="QGroupBox" name="groupBox_inventory">
+     <property name="title">
+      <string>Detail Barang</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="labelAlignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="horizontalSpacing">
+       <number>10</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>15</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_nama">
+        <property name="text">
+         <string>Nama Barang:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="namaLineEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_stok">
+        <property name="text">
+         <string>Stok:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="stokLineEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_harga_beli">
+        <property name="text">
+         <string>Harga Beli:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="hargaBeliLineEdit"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer_inventory">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="simpanButton">
+       <property name="text">
+        <string>Simpan</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>save.png</normaloff>save.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="batalButton">
+       <property name="text">
+        <string>Batal</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>cancel.png</normaloff>cancel.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>batalButton</sender>
+   <signal>clicked()</signal>
+   <receiver>InventoryDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>350</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>250</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

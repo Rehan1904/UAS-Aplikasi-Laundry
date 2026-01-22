@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Aplikasi Laundry</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #f0f8ff, stop:1 #e0f7fa);
+}
+
+QTabWidget::pane {
+    border: 1px solid #90a4ae;
+    background-color: white;
+    border-radius: 5px;
+}
+
+QTabBar::tab {
+    background: #bbdefb;
+    border: 1px solid #90a4ae;
+    border-bottom: none;
+    padding: 12px 20px;
+    min-width: 120px;
+    font: bold 12pt Arial;
+    color: #01579b;
+}
+
+QTabBar::tab:selected {
+    background: white;
+    border-bottom: 1px solid white;
+}
+
+QPushButton {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font: bold 12pt Arial;
+}
+
+QPushButton:hover {
+    background-color: #43a047;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+QLabel {
+    font: bold 14pt Arial;
+    color: #01579b;
+}
+
+QTableWidget {
+    background-color: #ffffff;
+    gridline-color: #cfd8dc;
+    selection-background-color: #bbdefb;
+    border: 1px solid #90a4ae;
+    border-radius: 5px;
+    font: 12pt Arial;
+}
+
+QLineEdit, QComboBox, QDateEdit {
+    padding: 8px;
+    border: 1px solid #90a4ae;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font: 12pt Arial;
+}
+
+QGroupBox {
+    border: 1px solid #90a4ae;
+    border-radius: 6px;
+    margin-top: 10px;
+    font: bold 14pt Arial;
+    color: #01579b;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px 0 5px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>20</number>
+    </property>
+    <property name="topMargin">
+     <number>20</number>
+    </property>
+    <property name="rightMargin">
+     <number>20</number>
+    </property>
+    <property name="bottomMargin">
+     <number>20</number>
+    </property>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tabDashboard">
+       <attribute name="title">
+        <string>Dashboard</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_dashboard">
+        <item>
+         <widget class="QLabel" name="welcomeLabel">
+          <property name="text">
+           <string>Selamat Datang di Aplikasi Laundry</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_dashboard_1">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="dashboardTable">
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <property name="columnCount">
+           <number>5</number>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>200</number>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>ID Order</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Pelanggan</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Status</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Biaya</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tanggal</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_dashboard">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="totalLabel">
+            <property name="text">
+             <string>Total Pendapatan Hari Ini: Rp 0</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_dashboard">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="refreshButton">
+            <property name="text">
+             <string>Refresh</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>refresh.png</normaloff>refresh.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabPelanggan">
+       <attribute name="title">
+        <string>Pelanggan</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_pelanggan">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_pelanggan_search">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QLineEdit" name="searchPelangganLineEdit">
+            <property name="placeholderText">
+             <string>Cari Pelanggan...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="tambahPelangganButton">
+            <property name="text">
+             <string>Tambah Pelanggan</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>add.png</normaloff>add.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="editPelangganButton">
+            <property name="text">
+             <string>Edit</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>edit.png</normaloff>edit.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="hapusPelangganButton">
+            <property name="text">
+             <string>Hapus</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>delete.png</normaloff>delete.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_pelanggan">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="pelangganTable">
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <property name="columnCount">
+           <number>5</number>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>200</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Nama</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Alamat</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Telepon</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Email</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabOrder">
+       <attribute name="title">
+        <string>Order</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_order">
+        <item>
+         <widget class="QGroupBox" name="groupBox_order">
+          <property name="title">
+           <string>Buat Order Baru</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_order">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::ExpandingFieldsGrow</enum>
+           </property>
+           <property name="labelAlignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <property name="formAlignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_pelanggan">
+             <property name="text">
+              <string>Pelanggan:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="pelangganComboBox"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_layanan">
+             <property name="text">
+              <string>Layanan:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="layananComboBox">
+             <item>
+              <property name="text">
+               <string>Cuci Kering</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Setrika</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cuci Basah</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_berat">
+             <property name="text">
+              <string>Berat/Jumlah (kg/item):</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="beratLineEdit"/>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_total_biaya">
+             <property name="text">
+              <string>Total Biaya:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="totalBiayaLabel">
+             <property name="text">
+              <string>Rp 0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_order_buttons">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="buatOrderButton">
+            <property name="text">
+             <string>Buat Order</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>add.png</normaloff>add.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="updateStatusButton">
+            <property name="text">
+             <string>Update Status</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>update.png</normaloff>update.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_order">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="orderTable">
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <property name="columnCount">
+           <number>6</number>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>180</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Pelanggan</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tanggal</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Status</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Biaya</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Layanan</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabInventory">
+       <attribute name="title">
+        <string>Inventory</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_inventory">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_inventory">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="tambahStokButton">
+            <property name="text">
+             <string>Tambah Stok</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>add.png</normaloff>add.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="kurangiStokButton">
+            <property name="text">
+             <string>Kurangi Stok</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>remove.png</normaloff>remove.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="editInventoryButton">
+            <property name="text">
+             <string>Edit</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>edit.png</normaloff>edit.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_inventory">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="inventoryTable">
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <property name="columnCount">
+           <number>4</number>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>250</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Nama Barang</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Stok</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Harga Beli</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabPembayaran">
+       <attribute name="title">
+        <string>Pembayaran</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_pembayaran">
+        <item>
+         <widget class="QGroupBox" name="groupBox_pembayaran">
+          <property name="title">
+           <string>Proses Pembayaran</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_pembayaran_group">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_pembayaran_search">
+             <property name="spacing">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QLineEdit" name="searchOrderLineEdit">
+               <property name="placeholderText">
+                <string>Cari Order ID...</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QFormLayout" name="formLayout_pembayaran">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::ExpandingFieldsGrow</enum>
+             </property>
+             <property name="labelAlignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_order_id">
+               <property name="text">
+                <string>ID Order:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="orderIdLineEdit"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_biaya">
+               <property name="text">
+                <string>Biaya:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="biayaLabel">
+               <property name="text">
+                <string>Rp 0</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+             <widget class="QLabel" name="label_bayar">
+               <property name="text">
+                <string>Jumlah Bayar:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="bayarLineEdit"/>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_kembalian">
+               <property name="text">
+                <string>Kembalian:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="kembalianLabel">
+               <property name="text">
+                <string>Rp 0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_pembayaran_buttons">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="prosesPembayaranButton">
+            <property name="text">
+             <string>Proses Pembayaran</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>payment.png</normaloff>payment.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="cetakInvoiceButton">
+            <property name="text">
+             <string>Cetak Invoice</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>print.png</normaloff>print.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabLaporan">
+       <attribute name="title">
+        <string>Laporan</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_laporan">
+        <item>
+         <widget class="QGroupBox" name="groupBox_laporan">
+          <property name="title">
+           <string>Filter Laporan</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_laporan">
+           <property name="spacing">
+            <number>10</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_from_date">
+             <property name="text">
+              <string>Dari Tanggal:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="fromDateEdit">
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_to_date">
+             <property name="text">
+              <string>Sampai Tanggal:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="toDateEdit">
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="tipeLaporanComboBox">
+             <item>
+              <property name="text">
+               <string>Harian</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mingguan</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Bulanan</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_laporan_buttons">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="generateLaporanButton">
+            <property name="text">
+             <string>Generate Laporan</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>generate.png</normaloff>generate.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="eksporCsvButton">
+            <property name="text">
+             <string>Ekspor CSV</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>csv.png</normaloff>csv.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="eksporPdfButton">
+            <property name="text">
+             <string>Ekspor PDF</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>pdf.png</normaloff>pdf.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_laporan">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>10</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="laporanTable">
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <property name="columnCount">
+           <number>5</number>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>200</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Tanggal</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Jumlah Order</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Pendapatan</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Inventory Digunakan</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Detail</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabPengaturan">
+       <attribute name="title">
+        <string>Pengaturan</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_pengaturan">
+        <item>
+         <widget class="QGroupBox" name="groupBox_pengaturan">
+          <property name="title">
+           <string>Ubah Password</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_pengaturan">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::ExpandingFieldsGrow</enum>
+           </property>
+           <property name="labelAlignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_password_lama">
+             <property name="text">
+              <string>Password Lama:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="passwordLamaLineEdit">
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_password_baru">
+             <property name="text">
+              <string>Password Baru:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="passwordBaruLineEdit">
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_konfirmasi">
+             <property name="text">
+              <string>Konfirmasi Password:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="konfirmasiLineEdit">
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_pengaturan_buttons">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="ubahPasswordButton">
+            <property name="text">
+             <string>Ubah Password</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>lock.png</normaloff>lock.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="backupDbButton">
+            <property name="text">
+             <string>Backup Database</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>backup.png</normaloff>backup.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #bbdefb;
+color: #01579b;</string>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">background-color: #bbdefb;
+color: #01579b;</string>
+   </property>
+  </widget>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
