@@ -202,7 +202,7 @@ Di repository ini sudah tersedia **file executable siap pakai**:
 
 ## 🖥️ Tampilan Aplikasi
 
-*(Catatan: Screenshot dapat ditambahkan di sini)*
+
 
 ### 1. **Login Screen**
    - Halaman pertama yang muncul
