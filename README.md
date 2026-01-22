@@ -200,21 +200,6 @@ Di repository ini sudah tersedia **file executable siap pakai**:
    - **Username:** `admin`
    - **Password:** `admin123`
 
-## 🛠️ Teknologi yang Digunakan
-
-| Teknologi | Versi | Keterangan |
-|-----------|-------|------------|
-| **Python** | 3.x | Bahasa pemrograman utama |
-| **PyQt6** | Latest | Framework GUI |
-| **SQLite** | 3.x | Database embedded (lihat tabel users untuk login) |
-| **ReportLab** | - | Generasi PDF (diduga) |
-| **PyInstaller** | - | Packaging aplikasi (executable di `dist/`) |
-
-**Distribusi Bahasa:**
-- HTML: 70.5% (file UI PyQt6)
-- TeX: 20.8% (dokumentasi/laporan)
-- Python: 8.7% (kode sumber)
-
 ## 🖥️ Tampilan Aplikasi
 
 *(Catatan: Screenshot dapat ditambahkan di sini)*
