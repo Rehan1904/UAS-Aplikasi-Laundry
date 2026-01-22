@@ -6,6 +6,7 @@
 
 Aplikasi Laundry adalah proyek UAS (Ujian Akhir Semester) yang dikembangkan sebagai sistem manajemen bisnis laundry berbasis desktop. Aplikasi ini dibangun menggunakan Python dengan antarmuka PyQt6 dan database SQLite untuk menyediakan solusi lengkap dalam mengelola operasional bisnis laundry.
 
+
 **Karakteristik Utama:**
 - ✅ Sistem autentikasi dengan login (username: `admin`, password: `admin123`)
 - ✅ **Executable file siap pakai** di folder `dist/`
@@ -54,6 +55,27 @@ UAS-Aplikasi-Laundry/
 ├── 
 └── (berbagai file PDF laporan)
 ```
+
+📸 Tampilan Aplikasi - Menu Cetak Laporan
+Berikut adalah tampilan dashboard aplikasi yang menunjukkan menu cetak laporan PDF:
+
+<img width="1190" height="820" alt="Screenshot 2026-01-22 171509" src="https://github.com/user-attachments/assets/850800c3-a920-4898-a3d4-519ce1f1fc89" />
+
+
+Keterangan Gambar:
+Menu Cetak PDF: Terdapat 7 opsi cetak laporan
+
+📊 Menu Cetak Laporan PDF
+Berdasarkan screenshot, aplikasi memiliki 7 jenis laporan PDF yang dapat dicetak:
+📋 Daftar Lengkap Fitur Cetak:
+📈 Cetak Dashboard Harian - Ringkasan aktivitas harian
+👥 Cetak Daftar Pelanggan - Database seluruh pelanggan
+🛒 Cetak Daftar Order - Riwayat semua transaksi
+📦 Cetak Daftar Inventory - Laporan stok produk
+💰 Cetak Laporan Pendapatan - Analisis keuangan
+📊 Cetak Laporan Status Order - Tracking progress order
+🧾 Cetak Invoice/Struk - Faktur untuk pelanggan
+🚀 Cetak Semua Laporan - Generate semua laporan sekaligus
 
 ## 🚀 Fitur Utama
 
